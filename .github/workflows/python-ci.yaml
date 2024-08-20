@@ -8,6 +8,15 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Hello word
+      run: |
+        echo " HEllo"
+
     - name: Run tests
       run: |
         python -m unittest discover
