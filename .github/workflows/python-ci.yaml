@@ -28,7 +28,7 @@ jobs:
         mkdir -p build
         echo "Build output" > build/output.txt
         # You can add more files or directories as needed
-        
+
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -72,3 +72,11 @@ jobs:
     - name: Run tests
       run: |
         python -m unittest discover
+        coverage report
+        coverage html
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: coverage-html/
