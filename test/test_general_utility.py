@@ -62,7 +62,6 @@ class TestLabelEpochs(unittest.TestCase):
         })
         labels = label_epochs(5, 30, annotations_df_bi)
         expected_labels = [1, 0, 0, 1, 0]
-        print(labels)
         self.assertTrue(np.array_equal(labels, expected_labels))
     
         
@@ -74,6 +73,7 @@ class TestLabelEpochs(unittest.TestCase):
         })
         with self.assertRaises(ValueError):
             label_epochs(5, 30, annotations_df_bi)
+    #comment added
 
 if __name__ == '__main__':
     unittest.main()
