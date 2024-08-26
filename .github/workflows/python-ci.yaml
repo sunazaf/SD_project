@@ -22,12 +22,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    
+    - name: Create build directory and add files
+      run: |
+        mkdir -p build
+        echo "Build output" > build/output.txt
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: build-artifacts
-        path: build/artifacts
+        path: |
+				  build/artifacts
+				  echo "Build output" > build/output.txt
 
   test:
     runs-on: ubuntu-latest
