@@ -23,16 +23,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Create build directory and add files
-      run: |
-        mkdir -p build
-        echo "Build output" > build/output.txt
-
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-artifacts
-        path: build/artifacts
+		- name: upload artifact
+			run: |
+				mkdir -p build
+				echo "Build output" > build/output.txt
+				echo "Additional build data" > build/extra.txt
+		- name: Upload build artifacts
+			uses: actions/upload-artifact@v4
+			with:
+				name: build-artifacts
+				path: build/*
 
   test:
     runs-on: ubuntu-latest
